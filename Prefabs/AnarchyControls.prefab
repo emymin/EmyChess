@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 1483954396}
   - component: {fileID: 1483954398}
   - component: {fileID: 1483954397}
-  m_Layer: 5
+  m_Layer: 17
   m_Name: EndTurnText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,7 +1187,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 07ae2b902838e4046bdf69668195d615, type: 3}
       propertyPath: m_Name
-      value: AnarchyControls Variant
+      value: AnarchyControls
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 07ae2b902838e4046bdf69668195d615, type: 3}
       propertyPath: m_Layer
