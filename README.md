@@ -25,6 +25,8 @@ Featuring:
 3. Drag the EmyChess prefab on the scene
 4. Position and scale as desired
 
+If there are a bunch of errors after importing while using the latest SDK and UdonSharp release, recompile all scripts. If that isn't working, modifying a script and saving it seems to also force recompilation, fixing the errors.
+
 ## Contributing
 This prefab is currently in beta, pull requests are appreciated! Refer to the task list for planned features, as well as known issues
 
