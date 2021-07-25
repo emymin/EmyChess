@@ -44,13 +44,27 @@
 
         UNITY_INSTANCING_BUFFER_END(Props)
 
+        float2 tri(float2 x) // triangular wave (used as integral of the square wave for the checkerboard pattern)
+        {
+            float2 h = frac(x * .5) - .5;
+            return (1 - 2 * abs(h));
+        }
+
+
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             fixed4 c = 1;
-            float2 id = floor(IN.uv_MainTex*8);
-            float square = (id.x + id.y) % 2;
+            float scale = 8;
+            float2 uv = IN.uv_MainTex * scale;
+            uv = clamp(uv, 0, scale);
+            float2 id = floor(uv);
+
+            float2 width = float2(max(abs(ddx(uv)), abs(ddy(uv))));
+            float2 integral = float2((tri( clamp(uv + .5 * width,0,scale) ) - tri( clamp(uv - .5 * width,0,scale) )) / width);
+            float square = saturate(.5 - .5 * integral.x * integral.y); //antialiased checkerboard
+
             
-            //square = 1-saturate((0.5 - square) / fwidth(square));
+            
             
             c.rgb = lerp( _Color1.rgb, _Color2.rgb, square);
             c = lerp(c, tex2D(_MainTex, IN.uv_MainTex), _TextureOpacity);
