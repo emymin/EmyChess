@@ -15,7 +15,7 @@ Featuring:
 
 ## Setup
 ### Requirements
-- Unity 2018.4.20f
+- [Unity 2019.4.29f1](https://docs.vrchat.com/docs/current-unity-version)
 - [Latest VRCSDK3 Worlds package](https://vrchat.com/home/download) 
 - [Latest release of UdonSharp](https://github.com/Merlin-san/UdonSharp/releases/latest)
 - (optional) [CyanEmu](https://github.com/CyanLaser/CyanEmu) for testing in editor
