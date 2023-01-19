@@ -1,0 +1,22 @@
+{
+    "name": "com.emymin.emychess.Editor",
+    "references": [
+        "VRC.SDK3",
+        "VRC.SDK3.Editor",
+        "VRC.SDKBase",
+        "VRC.SDKBase.Editor",
+        "UdonSharp",
+        "com.emymin.emychess",
+        "UdonSharp.Editor",
+        "UdonSharp.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
