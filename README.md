@@ -1,6 +1,6 @@
 # EmyChess
 
-![Preview picture](Resources/preview.png?raw=true)
+![Preview picture](preview.png?raw=true)
 
 A chess prefab for VRChat SDK3 worlds, powered by Udon, written in C# using UdonSharp
 
@@ -15,17 +15,12 @@ Featuring:
 
 ## Setup
 ### Requirements
-- [Unity 2019.4.29f1](https://docs.vrchat.com/docs/current-unity-version)
-- [Latest VRCSDK3 Worlds package](https://vrchat.com/home/download) 
-- [Latest release of UdonSharp](https://github.com/Merlin-san/UdonSharp/releases/latest)
-- (optional) [CyanEmu](https://github.com/CyanLaser/CyanEmu) for testing in editor
+The latest release of EmyChess is made to work with a project created with the [VRChat Creator Companion](https://vcc.docs.vrchat.com/), with the UdonSharp package installed. Make sure to migrate your project before installing.
 ### Installation
 1. Download the latest release of EmyChess from [here](https://github.com/emymin/EmyChess/releases/latest) or from [Booth](https://emymin.booth.pm/items/3126194)
 2. Import the Unity package inside the project
-3. Drag the EmyChess prefab on the scene
+3. Drag the EmyChess prefab from Packages/EmyChess/Runtime into the scene
 4. Position and scale as desired
-
-If there are a bunch of errors after importing while using the latest SDK and UdonSharp release, recompile all scripts. If that isn't working, modifying a script and saving it seems to also force recompilation, fixing the errors.
 
 ## Contributing
 This prefab is currently in beta, pull requests are appreciated! Refer to the task list for planned features, as well as known issues
