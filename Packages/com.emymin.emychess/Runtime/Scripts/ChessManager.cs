@@ -285,6 +285,7 @@ namespace Emychess
             if (automatedTimer)
             {
                 if (timer.isStarted) { timer._ResetTimer(0); }
+                timer._StartCountDown(true);
             }
             _RefreshUI();
             RequestSerialization();
