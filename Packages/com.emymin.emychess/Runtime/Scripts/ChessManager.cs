@@ -42,7 +42,7 @@ namespace Emychess
         [UdonSynced] [HideInInspector]
         public byte blackScore;
         /// <summary>
-        /// Wheter to have the timer automatically switch side at the end of a turn, as well as having time running out be a game over state, toggle with <see cref="_ToggleAutoTimer"/>
+        /// Whether to have the timer automatically switch side at the end of a turn, as well as having time running out be a game over state, toggle with <see cref="_ToggleAutoTimer"/>
         /// </summary>
         [UdonSynced][HideInInspector]
         public bool automatedTimer;
@@ -190,7 +190,7 @@ namespace Emychess
             return (isWhiteRegistered && (GetPlayer(true) == player)) || (isBlackRegistered && (GetPlayer(false) == player));
         }
         /// <summary>
-        /// Only Standard and Anarchy are available gamemodes currently
+        /// Only Standard and Anarchy are available game modes currently
         /// </summary>
         /// <param name="anarchy"></param>
         public void SetGameMode(bool anarchy)

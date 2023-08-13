@@ -65,7 +65,7 @@ namespace Emychess.Interactions
         }
         public override void OnDrop()
         {
-            Vector3 pos = board.pieces_parent.InverseTransformPoint(transform.position); //TODO board should have methods to get coordinates from position and viceversa, also for Piece placement
+            Vector3 pos = board.pieces_parent.InverseTransformPoint(transform.position); //TODO board should have methods to get coordinates from position and vice versa, also for Piece placement
             int x = (int)pos.x*-1-1;
             int y = (int)pos.z*-1-1;
             if (board.currentRules.anarchy && (board.GetPiecesAvailableCount(currentType)>0) )

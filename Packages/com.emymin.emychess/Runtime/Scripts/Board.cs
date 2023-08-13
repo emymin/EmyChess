@@ -13,7 +13,7 @@ namespace Emychess
     /// Behaviour for the chess board
     /// </summary>
     /// <remarks>
-    /// Note that the board doesn't actually hold piece positions, that is all handled by the <see cref="Piece"/> class, so that single piece positions can be synced individually, using MUCH less bandwith.
+    /// Note that the board doesn't actually hold piece positions, that is all handled by the <see cref="Piece"/> class, so that single piece positions can be synced individually, using MUCH less bandwidth.
     /// However having a grid representation of the board can be useful for move generation, for that use <see cref="GetBoardGrid"/>
     /// </remarks>
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
@@ -449,7 +449,7 @@ namespace Emychess
         }
 
         /// <summary>
-        /// Display debug indicators on the board for every spot on the <see cref="grid"/> that constains a piece
+        /// Display debug indicators on the board for every spot on the <see cref="grid"/> that contains a piece
         /// </summary>
         /// <param name="grid"></param>
         public void _DebugGrid(Piece[] grid)

@@ -40,7 +40,7 @@ namespace Emychess
             set { _state &= 0b11100011; _state |= (byte)(value << 2); }
         }
         /// <summary>
-        /// Wheter the piece is white
+        /// Whether the piece is white
         /// </summary>
         public bool white
         {
@@ -48,7 +48,7 @@ namespace Emychess
             set { _state &= 0b11111101; _state |= (byte)((value ? 1 : 0) << 1); }
         }
         /// <summary>
-        /// Wheter the piece has moved once after the start of the game
+        /// Whether the piece has moved once after the start of the game
         /// </summary>
         public bool hasMoved
         {

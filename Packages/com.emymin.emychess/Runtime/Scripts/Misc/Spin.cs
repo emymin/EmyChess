@@ -7,7 +7,7 @@ using VRC.Udon;
 namespace Emychess.Misc
 {
     /// <summary>
-    /// Simple behaviour to make an object SPEEN (used in the gameover text)
+    /// Simple behaviour to make an object SPEEN (used in the game over text)
     /// </summary>
     public class Spin : UdonSharpBehaviour
     {
