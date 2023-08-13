@@ -75,7 +75,7 @@ namespace Emychess.Interactions
                 Piece spawned = board._SpawnPiece(x, y, white, currentType);
                 if (spawned != null)
                 {
-                    spawned.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "PieceMovedAudio");
+                    spawned.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(spawned.PieceMovedAudio));
                 }
             }
             transform.localPosition = Vector3.zero;
