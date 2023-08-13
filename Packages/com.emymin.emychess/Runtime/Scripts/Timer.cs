@@ -6,6 +6,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using System;
 using Emychess.Interactions;
+using JetBrains.Annotations;
 
 namespace Emychess
 {
@@ -109,15 +110,15 @@ namespace Emychess
                 _SetTimeBothSides(timeWhite + time);
             }
         }
-        public void _Add30s()
+        [PublicAPI] public void _Add30s()
         {
             _AddTime(30);
         }
-        public void _Add1m()
+        [PublicAPI] public void _Add1m()
         {
             _AddTime(60);
         }
-        public void _Add15m()
+        [PublicAPI] public void _Add15m()
         {
             _AddTime(60 * 15);
         }
@@ -148,7 +149,7 @@ namespace Emychess
             isCurrentSideWhite = true;
             _RefreshDisplay();
         }
-        public void _ResetTimerEvent()
+        [PublicAPI] public void _ResetTimerEvent()
         {
             _ResetTimer(0);
         }

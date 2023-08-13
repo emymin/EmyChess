@@ -5,6 +5,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.SDK3;
 using UnityEngine.UI;
+using JetBrains.Annotations;
 
 namespace Emychess.Interactions
 {
@@ -41,13 +42,13 @@ namespace Emychess.Interactions
             if (pickup == null) { pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup)); }
             pickup.pickupable = enabled;
         }
-        public void _NextType()
+        [PublicAPI] public void _NextType()
         {
             index = (byte)((index + 1) % types.Length);
             currentType = types[index];
             _Refresh();
         }
-        public void _PreviousType()
+        [PublicAPI] public void _PreviousType()
         {
             index = (byte)(((index - 1) + types.Length) % types.Length);
             currentType = types[index];

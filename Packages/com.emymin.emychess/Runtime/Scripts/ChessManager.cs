@@ -6,6 +6,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using Emychess.Misc;
 using Emychess.Interactions;
+using JetBrains.Annotations;
 
 namespace Emychess
 {
@@ -174,14 +175,14 @@ namespace Emychess
         /// <summary>
         /// Registers the local player as white, unregisters if they're already registered
         /// </summary>
-        public void _RegisterWhite()
+        [PublicAPI] public void _RegisterWhite()
         {
             if (isWhiteRegistered && GetPlayer(true) == Networking.LocalPlayer) { _UnRegisterPlayer(true); } else { _RegisterPlayer(true); }
         }
         /// <summary>
         /// Registers the local player as black, unregisters if they're already registered
         /// </summary>
-        public void _RegisterBlack()
+        [PublicAPI] public void _RegisterBlack()
         {
             if (isBlackRegistered && GetPlayer(false) == Networking.LocalPlayer) { _UnRegisterPlayer(false); } else { _RegisterPlayer(false); }
         }
@@ -201,11 +202,11 @@ namespace Emychess
             _RefreshUI();
             RequestSerialization();
         }
-        public void _SetStandardGameMode()
+        [PublicAPI] public void _SetStandardGameMode()
         {
             SetGameMode(false);
         }
-        public void _SetAnarchyGameMode()
+        [PublicAPI] public void _SetAnarchyGameMode()
         {
             SetGameMode(true);
         }
@@ -229,7 +230,7 @@ namespace Emychess
         {
             logText.text = text;
         }
-        public void _EndTurn()
+        [PublicAPI] public void _EndTurn()
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             currentSide = !currentSide;
@@ -273,7 +274,7 @@ namespace Emychess
             //RequestSerialization();
         }
 
-        public void _StartGame()
+        [PublicAPI] public void _StartGame()
         {
 
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
@@ -291,7 +292,7 @@ namespace Emychess
             RequestSerialization();
 
         }
-        public void _EndGame()
+        [PublicAPI] public void _EndGame()
         {
 
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
@@ -311,7 +312,7 @@ namespace Emychess
         /// <summary>
         /// Toggles <see cref="automatedTimer"/>
         /// </summary>
-        public void _ToggleAutoTimer()
+        [PublicAPI] public void _ToggleAutoTimer()
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             automatedTimer = !automatedTimer;
