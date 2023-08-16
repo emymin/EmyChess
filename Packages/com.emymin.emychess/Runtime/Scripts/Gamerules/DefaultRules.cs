@@ -24,7 +24,7 @@ namespace Emychess.GameRules
         //TODO decouple rules more from rest of the scripts
 
         /// <summary>
-        /// Wheter anarchy mode is enabled, set with <see cref="SetAnarchy(bool)"/>
+        /// Whether anarchy mode is enabled, set with <see cref="SetAnarchy(bool)"/>
         /// </summary>
         [UdonSynced]
         public bool anarchy=false;
@@ -71,7 +71,7 @@ namespace Emychess.GameRules
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="legalMoves"></param>
-        /// <returns>If the append was succesful, index incremented by 1</returns>
+        /// <returns>If the append was successful, index incremented by 1</returns>
         private int AppendMove(int index, int x,int y,Vector2[] legalMoves)
         {
             int newindex = index;
@@ -90,13 +90,13 @@ namespace Emychess.GameRules
         }
 
         /// <summary>
-        /// Gets all the pseudolegal moves (legal moves that don't take in account king check) that a piece can make, for fully legal moves, check <see cref="GetAllLegalMoves(Piece, Board)"/>
+        /// Gets all the pseudo-legal moves (legal moves that don't take in account king check) that a piece can make, for fully legal moves, check <see cref="GetAllLegalMoves(Piece, Board)"/>
         /// </summary>
         /// <param name="movedPiece">Piece of which to find the legal moves</param>
         /// <param name="grid">Board's state in grid form, see <see cref="Board.GetBoardGrid"/></param>
         /// <param name="PawnThatDidADoublePushLastRound">A reference to a pawn that did a double push in the previous turn (for en passant), null if none</param>
         /// <param name="board">A reference to the board behaviour (UdonSharp doesn't support static methods)</param>
-        /// <returns>List of pseudolegalmoves</returns>
+        /// <returns>List of pseudo-legal moves</returns>
         public Vector2[] GetAllPseudoLegalMovesGrid(Piece movedPiece,Piece[] grid,Piece PawnThatDidADoublePushLastRound,Board board)
         {
             Vector2[] legalMoves = new Vector2[64]; // SADLY still no lists, so gotta do this the cursed way
@@ -231,7 +231,7 @@ namespace Emychess.GameRules
         }
 
         /// <summary>
-        /// Gets all pseudolegal moves for a piece on a board object, see <see cref="GetAllPseudoLegalMovesGrid(Piece, Piece[], Piece, Board)"/>
+        /// Gets all pseudo-legal moves for a piece on a board object, see <see cref="GetAllPseudoLegalMovesGrid(Piece, Piece[], Piece, Board)"/>
         /// </summary>
         /// <param name="piece"></param>
         /// <param name="board"></param>

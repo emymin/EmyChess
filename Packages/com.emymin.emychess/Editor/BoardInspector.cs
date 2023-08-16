@@ -112,7 +112,7 @@ namespace Emychess{
             }
             UnityEditor.EditorUtility.SetDirty(PrefabUtility.GetOutermostPrefabInstanceRoot(board.gameObject));
             //PrefabUtility.ApplyPrefabInstance(PrefabUtility.GetOutermostPrefabInstanceRoot(board.gameObject), InteractionMode.AutomatedAction);
-            Debug.Log("[EmyChess]: Pools succesfully generated");
+            Debug.Log("[EmyChess]: Pools successfully generated");
         }
         public void ResetPools(Board board)
         {
@@ -124,7 +124,7 @@ namespace Emychess{
                 }
                 pool.Pool = null;
             }
-            Debug.Log("[EmyChess]: Pools succesfully resetted",board);
+            Debug.Log("[EmyChess]: Pools successfully reset",board);
         }
 
         public override void OnInspectorGUI()

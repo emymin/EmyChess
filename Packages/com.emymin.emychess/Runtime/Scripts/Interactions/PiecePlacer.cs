@@ -5,6 +5,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.SDK3;
 using UnityEngine.UI;
+using JetBrains.Annotations;
 
 namespace Emychess.Interactions
 {
@@ -41,13 +42,13 @@ namespace Emychess.Interactions
             if (pickup == null) { pickup = (VRC_Pickup)GetComponent(typeof(VRC_Pickup)); }
             pickup.pickupable = enabled;
         }
-        public void _NextType()
+        [PublicAPI] public void _NextType()
         {
             index = (byte)((index + 1) % types.Length);
             currentType = types[index];
             _Refresh();
         }
-        public void _PreviousType()
+        [PublicAPI] public void _PreviousType()
         {
             index = (byte)(((index - 1) + types.Length) % types.Length);
             currentType = types[index];
@@ -65,7 +66,7 @@ namespace Emychess.Interactions
         }
         public override void OnDrop()
         {
-            Vector3 pos = board.pieces_parent.InverseTransformPoint(transform.position); //TODO board should have methods to get coordinates from position and viceversa, also for Piece placement
+            Vector3 pos = board.pieces_parent.InverseTransformPoint(transform.position); //TODO board should have methods to get coordinates from position and vice versa, also for Piece placement
             int x = (int)pos.x*-1-1;
             int y = (int)pos.z*-1-1;
             if (board.currentRules.anarchy && (board.GetPiecesAvailableCount(currentType)>0) )
@@ -75,7 +76,7 @@ namespace Emychess.Interactions
                 Piece spawned = board._SpawnPiece(x, y, white, currentType);
                 if (spawned != null)
                 {
-                    spawned.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "PieceMovedAudio");
+                    spawned.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(spawned.PieceMovedAudio));
                 }
             }
             transform.localPosition = Vector3.zero;

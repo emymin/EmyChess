@@ -40,7 +40,7 @@ namespace Emychess
             set { _state &= 0b11100011; _state |= (byte)(value << 2); }
         }
         /// <summary>
-        /// Wheter the piece is white
+        /// Whether the piece is white
         /// </summary>
         public bool white
         {
@@ -48,7 +48,7 @@ namespace Emychess
             set { _state &= 0b11111101; _state |= (byte)((value ? 1 : 0) << 1); }
         }
         /// <summary>
-        /// Wheter the piece has moved once after the start of the game
+        /// Whether the piece has moved once after the start of the game
         /// </summary>
         public bool hasMoved
         {
@@ -156,7 +156,7 @@ namespace Emychess
             hasMoved = false;
             _UpdateState();
             //RequestSerialization();
-            SendCustomEventDelayedFrames("_RequestSerialization", 20); //is this a bug? race condition? I honestly have no clue, but if I don't delay this, it just doesn't sync correctly when spawning a lot of pieces. EVEN FOR LATER JOINERS, HOW????
+            SendCustomEventDelayedFrames(nameof(_RequestSerialization), 20); //is this a bug? race condition? I honestly have no clue, but if I don't delay this, it just doesn't sync correctly when spawning a lot of pieces. EVEN FOR LATER JOINERS, HOW????
         }
 
         /// <summary>
@@ -257,11 +257,11 @@ namespace Emychess
             {
                 if (moveResult == 1)
                 {
-                    SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "PieceMovedAudio");
+                    SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(PieceMovedAudio));
                 }
                 else if (moveResult == 2)
                 {
-                    SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "PieceCapturedAudio");
+                    SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(PieceCapturedAudio));
                 }
 
                 if (!board.currentRules.anarchy)
