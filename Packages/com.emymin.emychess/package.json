@@ -1,7 +1,7 @@
 {
   "name": "com.emymin.emychess",
   "displayName": "EmyChess",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Udon chess prefab for VRChat",
   "dependencies": {},
   "gitDependencies": {},
