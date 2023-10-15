@@ -3,14 +3,9 @@
   "displayName": "EmyChess",
   "version": "0.1.2",
   "description": "Udon chess prefab for VRChat",
-  "dependencies": {
-    "com.vrchat.udonsharp": "1.1.6"
-  },
+  "dependencies": {},
   "gitDependencies": {},
-  "vpmDependencies": {
-    "com.vrchat.udonsharp": "1.1.6"
-  },
+  "vpmDependencies": {},
   "legacyFolders": {},
-  "legacyFiles": {},
-  "localPath": "D:\\UnityProjects\\EmyChess_VPM\\Packages\\com.emymin.emychess"
+  "legacyFiles": {}
 }
