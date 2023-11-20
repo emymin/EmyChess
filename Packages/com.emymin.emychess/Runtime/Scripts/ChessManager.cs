@@ -241,12 +241,12 @@ namespace Emychess
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             if (white) 
             { 
-                Debug.Log("[ChessManager] "+GetPlayer(true).displayName+" left White");
+                Debug.Log($"[ChessManager] {GetPlayer(true).displayName} left White");
                 isWhiteRegistered = false; 
             } 
             else 
             { 
-                Debug.Log("[ChessManager] "+GetPlayer(false).displayName+" left black");
+                Debug.Log($"[ChessManager] {GetPlayer(false).displayName} left black");
                 isBlackRegistered = false; 
             }
             _RefreshUI();
@@ -258,7 +258,7 @@ namespace Emychess
         /// <param name="text"></param>
         public void SetLogText(string text)
         {
-            Debug.Log("[ChessManager] "+text);
+            Debug.Log($"[ChessManager] {text}");
             logText.text = text;
         }
         [PublicAPI] public void _EndTurn()
@@ -281,11 +281,7 @@ namespace Emychess
                     bool isKingInCheck = board.currentRules.isKingInCheck(currentKing.GetVec(), board.grid, board, board.PawnThatDidADoublePushLastRound, currentSide);
                     
                     if (isKingInCheck) { board.SetIndicator(currentKing.x, currentKing.y, 2); 
-
-                    //check which king is check and print a debug log
-                    if(currentSide){Debug.Log("[ChessManager] "+"White King in Check");}
-                    else{Debug.Log("[ChessManager] "+"Black King in Check");}
-                    
+                    Debug.Log("[ChessManager] "+(currentSide ? "White" : "Black")+" King is in check");
                     } //TODO king in check should be moved to the refreshUI
 
                     int endState = board._CheckIfGameOver(currentSide, isKingInCheck);
@@ -310,13 +306,11 @@ namespace Emychess
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             if (white) { 
                 whiteScore += (byte)score; 
-                
-                Debug.Log("[ChessManager] "+"White Scored: "+score);
+                Debug.Log($"[ChessManager] White Scored: {score}");
                 }
             else { 
                 blackScore += (byte)score;
-
-                Debug.Log("[ChessManager] "+"Black Scored: "+score);
+                Debug.Log($"[ChessManager] Black Scored: {score}");
                 }
 
             //RequestSerialization();
@@ -339,11 +333,11 @@ namespace Emychess
             _RefreshUI();
             RequestSerialization();
 
-            Debug.Log("[ChessManager] "+"Game Started");
+            Debug.Log("[ChessManager] Game Started");
         }
         [PublicAPI] public void _EndGame()
         {
-            Debug.Log("[ChessManager] "+"Game Stopped");
+            Debug.Log("[ChessManager] Game Stopped");
 
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             inProgress = false;

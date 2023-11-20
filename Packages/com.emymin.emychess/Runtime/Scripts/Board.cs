@@ -198,7 +198,7 @@ namespace Emychess
         /// </summary>
         public void _ClearBoard()
         {
-            Debug.Log("[ChessManager] "+"Clearing Board");
+            Debug.Log("[ChessManager] Clearing Board");
             foreach(Piece piece in GetAllPieces())
             {
                 piece._Capture();
@@ -477,7 +477,7 @@ namespace Emychess
                     Piece currentSquarePiece = grid[GridToIndex(i, j)];
                     logString += (currentSquarePiece == null ? "null" : currentSquarePiece.type)+" ";
                 }
-                Debug.Log("[ChessManager] "+logString);
+                Debug.Log($"[ChessManager] {logString}");
             }
         }
         /// <summary>
