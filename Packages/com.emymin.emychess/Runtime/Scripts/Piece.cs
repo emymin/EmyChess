@@ -58,7 +58,7 @@ namespace Emychess
 
         public void _DebugState()
         {
-            Debug.Log("State: " + _state +" Properties "+ x + " " + y + " " + white + " " + hasMoved+" "+type,this);
+            Debug.Log("[ChessManager] "+"State: " + _state +" Properties "+ x + " " + y + " " + white + " " + hasMoved+" "+type,this);
         }
 
         #endregion

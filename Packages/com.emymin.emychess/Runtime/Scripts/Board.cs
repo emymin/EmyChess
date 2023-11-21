@@ -83,7 +83,7 @@ namespace Emychess
         {
             VRCObjectPool pool = GetPool(type);
             int count = 0;
-            if (pool == null) { Debug.LogError("Couldn't find pool for type " + type); }
+            if (pool == null) { Debug.LogError("[ChessManager] "+"Couldn't find pool for type " + type); }
             else
             {
                 foreach(GameObject obj in pool.Pool)
@@ -198,6 +198,7 @@ namespace Emychess
         /// </summary>
         public void _ClearBoard()
         {
+            Debug.Log("[ChessManager] Clearing Board");
             foreach(Piece piece in GetAllPieces())
             {
                 piece._Capture();
@@ -476,7 +477,7 @@ namespace Emychess
                     Piece currentSquarePiece = grid[GridToIndex(i, j)];
                     logString += (currentSquarePiece == null ? "null" : currentSquarePiece.type)+" ";
                 }
-                Debug.Log(logString);
+                Debug.Log($"[ChessManager] {logString}");
             }
         }
         /// <summary>

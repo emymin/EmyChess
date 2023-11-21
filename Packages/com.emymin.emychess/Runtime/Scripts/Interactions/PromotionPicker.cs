@@ -53,6 +53,8 @@ namespace Emychess.Interactions
         }
         public void PromoteTo(string type)
         {
+            bool white = targetPiece.white;
+
             if (type == "pawn")
             {
                 _PromotionDone();
@@ -62,11 +64,11 @@ namespace Emychess.Interactions
             {
                 int x = targetPiece.x;
                 int y = targetPiece.y;
-                bool white = targetPiece.white;
                 targetPiece._ReturnToPool();
                 board._SpawnPiece(x, y, white, type);
                 _PromotionDone();
             }
+            Debug.Log("[ChessManager] "+(white ? "White " : "Black ")+targetPiece.type+" promoted to "+type);
         }
         
     }

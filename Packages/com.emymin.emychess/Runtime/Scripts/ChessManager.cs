@@ -168,7 +168,15 @@ namespace Emychess
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             PlayerHolder targetHolder = white ? whitePlayerHolder : blackPlayerHolder;
             targetHolder._SetOwner();
-            if (white) { isWhiteRegistered = true; } else { isBlackRegistered = true; }
+            if (white) 
+            { 
+                isWhiteRegistered = true; 
+                Debug.Log("[ChessManager] "+GetPlayer(true).displayName+" joined White");
+            } else 
+            { 
+                isBlackRegistered = true; 
+                Debug.Log("[ChessManager] "+GetPlayer(false).displayName+" joined Black");
+            }
             _RefreshUI();
             RequestSerialization();
         }
@@ -177,14 +185,27 @@ namespace Emychess
         /// </summary>
         [PublicAPI] public void _RegisterWhite()
         {
-            if (isWhiteRegistered && GetPlayer(true) == Networking.LocalPlayer) { _UnRegisterPlayer(true); } else { _RegisterPlayer(true); }
+            if (isWhiteRegistered && GetPlayer(true) == Networking.LocalPlayer) 
+            { 
+                _UnRegisterPlayer(true); 
+            } else 
+            { 
+                _RegisterPlayer(true); 
+            }
         }
         /// <summary>
         /// Registers the local player as black, unregisters if they're already registered
         /// </summary>
         [PublicAPI] public void _RegisterBlack()
         {
-            if (isBlackRegistered && GetPlayer(false) == Networking.LocalPlayer) { _UnRegisterPlayer(false); } else { _RegisterPlayer(false); }
+            if (isBlackRegistered && GetPlayer(false) == Networking.LocalPlayer) 
+            { 
+                _UnRegisterPlayer(false); 
+            } 
+            else 
+            { 
+                _RegisterPlayer(false); 
+            }
         }
         public bool isRegistered(VRCPlayerApi player)
         {
@@ -218,7 +239,16 @@ namespace Emychess
         public void _UnRegisterPlayer(bool white)
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-            if (white) { isWhiteRegistered = false; } else { isBlackRegistered = false; }
+            if (white) 
+            { 
+                Debug.Log($"[ChessManager] {GetPlayer(true).displayName} left White");
+                isWhiteRegistered = false; 
+            } 
+            else 
+            { 
+                Debug.Log($"[ChessManager] {GetPlayer(false).displayName} left black");
+                isBlackRegistered = false; 
+            }
             _RefreshUI();
             RequestSerialization();
         }
@@ -228,6 +258,7 @@ namespace Emychess
         /// <param name="text"></param>
         public void SetLogText(string text)
         {
+            Debug.Log($"[ChessManager] {text}");
             logText.text = text;
         }
         [PublicAPI] public void _EndTurn()
@@ -248,7 +279,11 @@ namespace Emychess
                 if (currentKing!=null)
                 {
                     bool isKingInCheck = board.currentRules.isKingInCheck(currentKing.GetVec(), board.grid, board, board.PawnThatDidADoublePushLastRound, currentSide);
-                    //if (isKingInCheck) { board.SetIndicator(currentKing.x, currentKing.y, 2); Debug.Log("King is in check"); } //TODO king in check should be moved to the refreshUI
+                    
+                    if (isKingInCheck) { board.SetIndicator(currentKing.x, currentKing.y, 2); 
+                    Debug.Log("[ChessManager] "+(currentSide ? "White" : "Black")+" King is in check");
+                    } //TODO king in check should be moved to the refreshUI
+
                     int endState = board._CheckIfGameOver(currentSide, isKingInCheck);
                     if (endState != 0)
                     {
@@ -269,8 +304,15 @@ namespace Emychess
         {
             
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-            if (white) { whiteScore += (byte)score; }
-            else { blackScore += (byte)score; }
+            if (white) { 
+                whiteScore += (byte)score; 
+                Debug.Log($"[ChessManager] White Scored: {score}");
+                }
+            else { 
+                blackScore += (byte)score;
+                Debug.Log($"[ChessManager] Black Scored: {score}");
+                }
+
             //RequestSerialization();
         }
 
@@ -291,9 +333,11 @@ namespace Emychess
             _RefreshUI();
             RequestSerialization();
 
+            Debug.Log("[ChessManager] Game Started");
         }
         [PublicAPI] public void _EndGame()
         {
+            Debug.Log("[ChessManager] Game Stopped");
 
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             inProgress = false;
@@ -306,7 +350,6 @@ namespace Emychess
             picker._Hide();
             _RefreshUI();
             RequestSerialization();
-
         }
 
         /// <summary>
