@@ -15,10 +15,10 @@ Featuring:
 
 ## Setup
 ### Requirements
-The latest release of EmyChess is made to work with a project created with the [VRChat Creator Companion](https://vcc.docs.vrchat.com/), with the UdonSharp package installed. Make sure to migrate your project before installing.
+The latest release of EmyChess is made to work with a project created with the [VRChat Creator Companion](https://vcc.docs.vrchat.com/) or [ALCOM](https://vrc-get.anatawa12.com/alcom/), with the UdonSharp package installed. Make sure to migrate your project before installing.
 ### Installation
-1. Download the latest release of EmyChess from [here](https://github.com/emymin/EmyChess/releases/latest) or from [Booth](https://emymin.booth.pm/items/3126194)
-2. Import the Unity package inside the project
+1. Add my [VPM Repository](https://emymin.net/vpm-listing/) to [ALCOM](https://vrc-get.anatawa12.com/alcom/) or the [VRChat Creator Companion](https://vcc.docs.vrchat.com/), or alternatively download the latest release from [here](https://github.com/emymin/EmyChess/releases/latest) or from [Booth](https://emymin.booth.pm/items/3126194)
+2. If using ALCOM/VCC, install the EmyChess package to your desired project, otherwise import the downloaded UnityPackage
 3. Drag the EmyChess prefab from Packages/EmyChess/Runtime into the scene
 4. Position and scale as desired
 
